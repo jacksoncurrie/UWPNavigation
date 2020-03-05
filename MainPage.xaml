@@ -9,6 +9,24 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <NavigationView Content="NavigationView" IsSettingsVisible="True">
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:Uid="HomeNavItem" Content="Home" Tag="home">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE10F;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItemHeader Content="Main pages"/>
+                <NavigationViewItem x:Uid="AppsNavItem" Icon="AllApps" Content="Apps" Tag="apps"/>
+                <NavigationViewItem x:Uid="GamesNavItem" Icon="Video" Content="Games" Tag="games"/>
+                <NavigationViewItem x:Uid="MusicNavItem" Icon="Audio" Content="Music" Tag="music"/>
+            </NavigationView.MenuItems>
+
+            <NavigationView.PaneFooter>
+                <NavigationViewItem x:Uid="AppsNavItem" Icon="AllApps" Content="Apps" Tag="apps" />
+            </NavigationView.PaneFooter>
+        </NavigationView>
 
     </Grid>
 </Page>
