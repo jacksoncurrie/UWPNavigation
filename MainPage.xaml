@@ -2,31 +2,24 @@
     x:Class="NavigationPractice.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:NavigationPractice"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <NavigationView Content="NavigationView" IsSettingsVisible="True">
+        <NavigationView x:Name="NavView" IsSettingsVisible="True" PaneTitle="Navigation Practice" SelectionChanged="NavView_SelectionChanged" BackRequested="NavigationView_BackRequested">
+            <NavigationView.AutoSuggestBox>
+                <AutoSuggestBox QueryIcon="Find" PlaceholderText="Search"/>
+            </NavigationView.AutoSuggestBox>
             <NavigationView.MenuItems>
-                <NavigationViewItem x:Uid="HomeNavItem" Content="Home" Tag="home">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE10F;"/>
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
-                <NavigationViewItemSeparator/>
-                <NavigationViewItemHeader Content="Main pages"/>
-                <NavigationViewItem x:Uid="AppsNavItem" Icon="AllApps" Content="Apps" Tag="apps"/>
-                <NavigationViewItem x:Uid="GamesNavItem" Icon="Video" Content="Games" Tag="games"/>
-                <NavigationViewItem x:Uid="MusicNavItem" Icon="Audio" Content="Music" Tag="music"/>
+                <NavigationViewItem x:Uid="HomeNavItem" Icon="Home" Content="Home" Tag="home"/>
+                <NavigationViewItem x:Uid="CalendarNavItem" Icon="Calendar" Content="Calendar" Tag="calendar"/>
             </NavigationView.MenuItems>
-
-            <NavigationView.PaneFooter>
-                <NavigationViewItem x:Uid="AppsNavItem" Icon="AllApps" Content="Apps" Tag="apps" />
-            </NavigationView.PaneFooter>
+            
+            <ScrollViewer>
+                <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True" NavigationFailed="ContentFrame_NavigationFailed"/>
+            </ScrollViewer>
         </NavigationView>
-
     </Grid>
 </Page>
