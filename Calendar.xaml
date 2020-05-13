@@ -9,6 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <CalendarView HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <CalendarView HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedDatesChanged="CalendarView_SelectedDatesChanged" CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" />
     </Grid>
 </Page>
